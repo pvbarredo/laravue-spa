@@ -1,9 +1,9 @@
 <template>
-    <el-container>
-        <el-header>
-            <h1>Device Form</h1>
-        </el-header>
-        <el-main>
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>Device Data</h1>
+        </div>
+        <div class="panel panel-default">
             <el-form :model="device" :rules="deviceRules" ref="device" label-width="120px">
                 <el-form-item label="Name" prop="name">
                     <el-input v-model="device.name"></el-input>
@@ -21,7 +21,6 @@
                     <span class="custom-tree-node" slot-scope="{ node, data }">
                         <span><b>{{ node.label}}</b></span>
                     <span>
-                          
                           <el-button
                             type="text"
                             size="mini"
@@ -62,12 +61,13 @@
                         </span>
                     </span>
                 </el-tree>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('device')">Create</el-button>
-                    <el-button @click="resetForm('device')">Cancel</el-button>
-                </el-form-item>
+                <div class="form-group search-button pull-right">
+                    <button type="button" class="btn btn-primary" @click.prevent="submitForm('device')"> Save</button>
+                    <button type="button" class="btn btn-default" @click.prevent="resetForm('device')"> Cancel</button>
+                </div>
+                <div class="clearfix"></div>
             </el-form>
-        </el-main>
+        </div>
         <el-dialog title='Type Form' :visible.sync="typeFormDialog">
             <type-form></type-form>
         </el-dialog>
@@ -77,7 +77,7 @@
         <el-dialog title='Critical Value Form' :visible.sync="criticalValueFormDialog" width="75%">
             <critical-value-form></critical-value-form>
         </el-dialog>
-    </el-container>
+    </div>
 </template>
 <script>
 import TypeForm from './TypeForm.vue'
@@ -149,7 +149,7 @@ export default {
     methods: {
 
         append(node, data, type) {
-           
+
             switch (type) {
                 case 'MODIFY_TYPE':
                     this.typeFormDialog = true;

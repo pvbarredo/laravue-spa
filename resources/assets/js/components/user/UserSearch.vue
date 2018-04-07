@@ -5,41 +5,47 @@
                 <button class="btn btn-primary pull-right">
                     <i class="glyphicon glyphicon-plus"></i> Add User</button>
             </router-link>
-            <h1>User Maintenance </span></h1>
+            <h1>User Maintenance</h1>
         </div>
         <div class="panel panel-default search-panel">
-            <el-collapse>
-                <el-collapse-item name="1">
-                    <template slot="title">
-                        <strong>Search</strong>
-                    </template>
-                    <form class="form-inline search-from">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Firstname" v-model="searchCriteria.firstname">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Middlename" v-model="searchCriteria.middlename">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Surname" v-model="searchCriteria.surname">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email" v-model="searchCriteria.email">
-                        </div>
-                        <div class="form-group search-button pull-right">
-                            <button type="button" class="btn btn-warning" @click.prevent="getUsers(1)">
-                                <i class="glyphicon glyphicon-search"></i> Search</button>
-                            <button type="button" class="btn btn-default" @click.prevent="resetSearch()">
-                                <i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                        </div>
-                    </form>
-                </el-collapse-item>
-            </el-collapse>
+            <form class="form-inline search-from">
+                <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                    <input type="text" class="form-control" placeholder="Firstname" v-model="searchCriteria.firstname">
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                    <input type="text" class="form-control" placeholder="Middlename" v-model="searchCriteria.middlename">
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                    <input type="text" class="form-control" placeholder="Surname" v-model="searchCriteria.surname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+                    <input type="text" class="form-control" placeholder="Email" v-model="searchCriteria.email">
+                    </div>
+                </div>
+                <div class="form-group search-button pull-right">
+                    <button type="button" class="btn btn-warning" @click.prevent="getUsers(1)">
+                        <i class="glyphicon glyphicon-search"></i> Search</button>
+                    <button type="button" class="btn btn-default" @click.prevent="resetSearch()">
+                        <i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
         </div>
         <!-- Main Panel -->
         <div class="panel panel-default">
             <el-table :data="userList" style="width: 100%">
-              <el-table-column prop="id" label="Id" width="180">
+              <el-table-column prop="id" label="Id" width="50">
                 </el-table-column>
                 <el-table-column prop="firstname" label="First Name" width="180">
                 </el-table-column>
@@ -49,16 +55,15 @@
                 </el-table-column>
                 <el-table-column prop="email" label="Email">
                 </el-table-column>
-                <el-table-column label="Actions">
+                <el-table-column label="Actions" width="150">
                     <template slot-scope="scope">
-                        
                         <router-link :to="{name: 'user.edit', params: { id: scope.row.id }}">
                             <button class="btn btn-primary btn-sm">
-                                <i class="glyphicon glyphicon-edit"></i> Edit
+                                <i class="glyphicon glyphicon-edit"></i>
                             </button>
                         </router-link>
                         <button class="btn btn-danger btn-sm">
-                            <i class="glyphicon glyphicon-remove"></i> Delete
+                            <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </template>
                 </el-table-column>
@@ -66,7 +71,7 @@
             <el-pagination background layout="prev, pager, next" :total="totalItems" :page-size="pageSize" @current-change="currentChange">
            </el-pagination>
         </div>
-        
+
     </div>
 </template>
 <script>
@@ -100,7 +105,7 @@ export default {
             });
         },
         currentChange : function(val){
-          
+
           this.getUsers(val);
         }
 

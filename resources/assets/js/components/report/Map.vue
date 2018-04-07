@@ -1,18 +1,27 @@
 <template>
-    <el-container>
-        <el-main>
-            <el-row>
-                <gmap-autocomplete placeholder="Search place" :selectFirstOnEnter="true" class="form-control" style="width: 300px;" @place_changed="placeChange" />
-            </el-row>
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>Map</h1>
+        </div>
+        <div class="panel panel-default search-panel">
+            <form class="form-inline search-from">
+                <div class="form-group">
+                    <div class="input-group">
+					<div class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i></div>
+                    <gmap-autocomplete placeholder="Search place" :selectFirstOnEnter="true" class="form-control" style="width: 500px" @place_changed="placeChange" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel panel-default">
             <el-row>
                 <gmap-map :center="center" :zoom="zoom" style="width: 500px; height: 500px">
                     <gmap-marker :key="indexMarker" v-for="(m, indexMarker) in markers" :position="m.position" :clickable="true" @click="markerClicked(m)" :label="m.label" :icon="m.icon" :title="m.title"></gmap-marker>
                     <gmap-circle :key="c.id" v-for="(c, indexCircle) in circles" :center="c.center" :options="c.options"></gmap-circle>
                 </gmap-map>
-               
             </el-row>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -21,7 +30,7 @@ export default {
 
     data() {
         return {
-            
+
             center: {
                 lat: 14.612612,
                 lng: 120.981686

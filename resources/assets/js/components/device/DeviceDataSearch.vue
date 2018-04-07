@@ -1,30 +1,32 @@
 <template>
-    <el-container>
-        <el-header>
-            <h1>Device Data </span></h1>
-        </el-header>
-        <el-main>
-            <el-collapse>
-                <el-collapse-item name="1">
-                    <template slot="title">
-                        <strong>Search</strong>
-                    </template>
-                    <form class="form-inline search-from">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Device" v-model="searchCriteria.davice">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Property" v-model="searchCriteria.property">
-                        </div>
-                        <div class="form-group search-button pull-right">
-                            <button type="button" class="btn btn-warning" @click.prevent="getDeviceData(1)">
-                                <i class="glyphicon glyphicon-search"></i> Search</button>
-                            <button type="button" class="btn btn-default" @click.prevent="resetSearch()">
-                                <i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                        </div>
-                    </form>
-                </el-collapse-item>
-            </el-collapse>
+     <div class="col-md-12">
+        <div class="page-header">
+            <h1>Device Data</h1>
+        </div>
+        <div class="panel panel-default search-panel">
+            <form class="form-inline search-from">
+                <div class="form-group">
+                    <div class="input-group">
+					<div class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></div>
+                    <input type="text" class="form-control" placeholder="Device" v-model="searchCriteria.davice">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+					<div class="input-group-addon"><i class="glyphicon glyphicon-home"></i></div>
+                    <input type="text" class="form-control" placeholder="Property" v-model="searchCriteria.property">
+                    </div>
+                </div>
+                <div class="form-group search-button pull-right">
+                    <button type="button" class="btn btn-warning" @click.prevent="getDeviceData(1)">
+                        <i class="glyphicon glyphicon-search"></i> Search</button>
+                    <button type="button" class="btn btn-default" @click.prevent="resetSearch()">
+                        <i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="panel panel-default">
             <el-table v-loading="tableLoading" :data="deviceDataList"  style="width: 100%" >
                 <el-table-column prop="id" label="Id">
                 </el-table-column>
@@ -62,8 +64,8 @@
             </el-table>
             <el-pagination background layout="prev, pager, next" :total="totalItems" :page-size="pageSize" @current-change="currentChange">
             </el-pagination>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -109,9 +111,9 @@ export default {
                 var criticalValues = data.property.critical_value,
                     value = data.value,
                     criticalMessages = [];
-            
+
                 _.each(criticalValues, function(criticalValue) {
-                
+
                     switch (criticalValue.condition) {
                         case 'Exact':
                             if (criticalValue.min_value == value) {
