@@ -12,7 +12,7 @@ $panel-inner-border: $laravel-border-color;
 $brand-primary: #8FBC39;
 $brand-info: #719926;
 $brand-success: #2ab27b;
-$brand-warning: #e89b0e;
+$brand-warning: #eda41d;
 $brand-danger: #d0744f;
 
 // Typography
@@ -42,6 +42,9 @@ $btn-default-color: $text-color;
 $input-border: lighten($text-color, 40%);
 $input-border-focus: lighten($brand-primary, 25%);
 $input-color-placeholder: lighten($text-color, 30%);
+
+$input-group-addon-bg: #fafff3;
+$input-border: #98a483;
 
 // Panels
 $panel-default-heading-bg: #fff;
