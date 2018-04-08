@@ -1,8 +1,12 @@
 <template>
     <div class="panel panel-default">
-        
+
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-logo">
+                    <img src="/img/logo.png" />
+                </div>
+
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -14,17 +18,17 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <router-link to="form">
+                    <!-- <router-link to="form">
                         <a class="navbar-brand">
                             MHI
                         </a>
-                     </router-link>
+                     </router-link> -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        
+
                         <li>
                             <router-link :to="{ name: 'user.search'}">
                                 Account
@@ -35,12 +39,12 @@
                                  Devices
                              </router-link>
                         </li>
-                      
+
                         <li>
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Reports <span class="caret"></span>
                           </a>
-                          <ul class="dropdown-menu" role="menu">                                  
+                          <ul class="dropdown-menu" role="menu">
                             <li>
                                 <router-link :to="{ name: 'report.map'}">
                                     Maps
@@ -72,7 +76,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                  
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                   Administrator<span class="caret"></span>
@@ -90,22 +94,22 @@
                                         </a>
 
                                         <form id="logout-form" action="#" method="POST" style="display: none;">
-                                         
+
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                     
+
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
         <div class="panel-body">
             <div class="container">
                 <router-view></router-view>
             </div>
-            
+
         </div>
     </div>
 </template>
