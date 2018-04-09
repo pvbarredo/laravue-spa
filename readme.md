@@ -50,6 +50,13 @@ Buttons are right align (float right)
 <div class="clearfix"></div>
 ```
 
+For form buttons, add padding top
+```
+<div class="form-group search-button pull-right from-button">
+```
+
+If dialog form, dont add padding
+
 ## Panel
 Always put stuff inside a panel
 ```
@@ -57,9 +64,19 @@ Always put stuff inside a panel
 </div>
 ```
 
+## Forms
+Use Element UI Forms, but bootstrap buttons
+
+## Dialogs
+Make use of the title property for el-dialog
+```
+<el-dialog :visible.sync="deviceDataDialog" width="80%" title="Device Data">
+```
+
 ## Colors
 
 * Primary Color: #8FBC39
 * Navbar Color: #6B9942
+* Link Color: #6d961e;
 * Danger Color: #d0744f
 * Warning Color: #eda41d
