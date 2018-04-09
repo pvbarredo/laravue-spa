@@ -30,7 +30,27 @@
 .remove-float{
     float: none!important;
 }
+.login-logo{
+    padding-bottom:10px;
 
+    > img {
+        width: 500px;
+    }
+}
+
+.center{
+    width: 480px;
+    height: 340px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -245px;
+    margin-top: -200px;
+}
+
+.full-width{
+    width: 100%;
+}
 
 // ------------------ OVERRIDE BOOTSTRAP UI DESIGN ------------------ //
 .page-header{
@@ -112,4 +132,16 @@
 
 .el-button--text{
     color: #6d961e!important;
+}
+
+.el-card{
+    color:#2b522c !important;
+}
+
+.el-card__body{
+    background-color: #f4f6f0 !important;
+}
+
+.el-card.is-always-shadow, .el-card.is-hover-shadow:focus, .el-card.is-hover-shadow:hover{
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,.1)!important;
 }

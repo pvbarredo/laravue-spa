@@ -1,18 +1,23 @@
 <template>
-    <div>
-        <el-card class="box-card">
-        
-        <form autocomplete="off" @submit.prevent="login" method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" class="form-control" v-model="auth.username" required>
+    <div class="center">
+        <el-card class="box-card login-card">
+            <div class="login-logo">
+                <img src="/img/logo-dark.png" />
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" v-model="auth.password" required>
-            </div>
-            <button type="submit" class="btn btn-default">Sign in</button>
-        </form>
+            <form autocomplete="off" @submit.prevent="login" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="form-control" v-model="auth.username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="form-control" v-model="auth.password" required>
+                </div>
+                <div class="form-group search-button pull-right full-width">
+                    <button type="button" class="btn btn-info full-width" @click.prevent=""> Sign in</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
         </el-card>
     </div>
 </template>
