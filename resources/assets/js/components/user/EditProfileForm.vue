@@ -1,9 +1,11 @@
 <template>
-    <el-container>
-        <el-header>Edit Profile Form</el-header>
-        <el-main>
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>User Form</h1>
+        </div>
+        <div class="panel panel-default">
             <el-form :model="profile" :rules="profileRules" ref="profile" label-width="120px">
-                
+
                 <el-form-item label="Firstname" prop="firstname">
                     <el-input v-model="profile.firstname"></el-input>
                 </el-form-item>
@@ -19,13 +21,14 @@
                 <el-form-item label="Password" prop="password">
                     <el-input type="password" v-model="profile.password"></el-input>
                 </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('profile')">Create</el-button>
-                    <el-button @click="resetForm('profile')">Reset</el-button>
-                </el-form-item>
+                <div class="form-group search-button pull-right from-button">
+                    <button type="button" class="btn btn-primary" @click.prevent="submitForm('profile')"> Save</button>
+                    <button type="button" class="btn btn-default" @click.prevent="resetForm('profileuser')"> Cancel</button>
+                </div>
+                <div class="clearfix"></div>
             </el-form>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 
 <script>

@@ -68,8 +68,8 @@
             </el-pagination>
         </div>
 
-        <el-dialog :visible.sync="deviceDataDialog" width="75%">
-            <device-data ></device-data>
+        <el-dialog :visible.sync="deviceDataDialog" width="80%" title="Device Data">
+            <device-data></device-data>
         </el-dialog>
     </div>
 </template>

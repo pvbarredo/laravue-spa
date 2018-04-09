@@ -1,9 +1,11 @@
 <template>
-    <el-container>
-        <el-header>User Form</el-header>
-        <el-main>
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>User Form</h1>
+        </div>
+        <div class="panel panel-default">
             <el-form :model="user" :rules="userRules" ref="user" label-width="120px">
-                
+
                 <el-form-item label="Firstname" prop="firstname">
                     <el-input v-model="user.firstname"></el-input>
                 </el-form-item>
@@ -19,13 +21,14 @@
                 <el-form-item label="Password" prop="password">
                     <el-input type="password" v-model="user.password"></el-input>
                 </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('user')">Create</el-button>
-                    <el-button @click="resetForm('user')">Reset</el-button>
-                </el-form-item>
+                <div class="form-group search-button pull-right from-button">
+                    <button type="button" class="btn btn-primary" @click.prevent="submitForm('user')"> Save</button>
+                    <button type="button" class="btn btn-default" @click.prevent="resetForm('user')"> Cancel</button>
+                </div>
+                <div class="clearfix"></div>
             </el-form>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 <script>
 export default {
@@ -75,7 +78,7 @@ export default {
                 vm.user = response.data;
             });
         },
-      
+
         submitForm(user) {
             this.$refs[user].validate((valid) => {
                 if (valid) {

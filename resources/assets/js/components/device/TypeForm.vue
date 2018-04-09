@@ -1,15 +1,16 @@
 <template>
-    <el-form :model="type" :rules="typeRules" ref="type">
+    <el-form :model="type" :rules="typeRules" ref="type"  label-width="120px">
         <el-form-item label="Name" prop="name">
             <el-input v-model="type.name"></el-input>
         </el-form-item>
         <el-form-item label="Username" prop="username">
             <el-input v-model="type.username"></el-input>
         </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="">Create</el-button>
-            <el-button>Cancel</el-button>
-        </el-form-item>
+        <div class="form-group search-button pull-right">
+            <button type="button" class="btn btn-primary" @click.prevent="submitForm('')"> Save</button>
+            <button type="button" class="btn btn-default" @click.prevent="resetForm('')"> Cancel</button>
+        </div>
+        <div class="clearfix"></div>
     </el-form>
 </template>
 <script>

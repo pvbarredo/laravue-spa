@@ -1,5 +1,5 @@
 <template>
-     <div class="col-md-12">
+     <div class="col-md-12 remove-float">
         <div class="page-header">
             <h1>Device Data</h1>
         </div>

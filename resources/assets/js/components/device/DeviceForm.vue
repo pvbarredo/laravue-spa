@@ -61,7 +61,7 @@
                         </span>
                     </span>
                 </el-tree>
-                <div class="form-group search-button pull-right">
+                <div class="form-group search-button pull-right from-button">
                     <button type="button" class="btn btn-primary" @click.prevent="submitForm('device')"> Save</button>
                     <button type="button" class="btn btn-default" @click.prevent="resetForm('device')"> Cancel</button>
                 </div>
